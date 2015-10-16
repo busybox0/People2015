@@ -1,13 +1,23 @@
 package model.person;
 
-/**
- * Created by max on 2015-10-14.
- */
+
 public abstract class Persistable {
-    static long counter = 0;
-    protected long id; // to be visible from subclass
-    long getTotalNumber;
-    long getId() {
+    static long counter = 1;
+    private static long id_count =1 ; // 'protected' to be visible from subclass
+    private long id; // 'protected' to be visible from subclass
+
+    {
+        // init
+        id = id_count++;
+        counter++; // gets deducted when person fired
+        System.out.println("Hello from Persistable init, counter=" + counter);
+    }
+
+    final static long getTotalNumber(){
+        return counter;
+    }
+
+    final long getId() {
         return id;
     }
 }

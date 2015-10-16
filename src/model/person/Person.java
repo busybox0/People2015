@@ -21,10 +21,10 @@ public abstract class Person extends Persistable implements Fireable  {
     }
 
     // Constructor2
-    Person(String inFirstName, String inLastName, String instringDate_yyyymmdd) {
+    Person(String inFirstName, String inLastName, String inBirthDate_yyyymmdd) {
         checkFirstName(inFirstName);
         checkLastName(inLastName);
-        this.birthDay = LocalDate.parse(instringDate_yyyymmdd, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        this.birthDay = LocalDate.parse(inBirthDate_yyyymmdd, DateTimeFormatter.ofPattern("yyyyMMdd"));
         checkBirthDate(birthDay);
         this.firstName = inFirstName;
         this.lastName = inLastName;
@@ -85,6 +85,6 @@ public abstract class Person extends Persistable implements Fireable  {
 
     @Override
     public String toString() {
-     return "Person: " + firstName + " " + lastName + ". Birthday: " + birthDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+     return "ID: " + getId() + "; Person: " + firstName + " " + lastName + "; Birthday: " + birthDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 }

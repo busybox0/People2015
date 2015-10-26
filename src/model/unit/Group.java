@@ -70,6 +70,7 @@ public class Group extends StructuralUnit {
         students =   listOfStudents.toArray();
     }
 
+
     public void removeStudent(Student student) {
 
         listOfStudents.remove(student);

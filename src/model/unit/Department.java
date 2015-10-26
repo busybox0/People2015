@@ -1,0 +1,59 @@
+// Department is a child of Faculty and the parent of Speciality
+package model.unit;
+import model.person.Employee;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Department extends StructuralUnit{
+    Speciality[] specialities;
+    Employee[] employees;
+    Employee head;
+    Faculty faculty;
+    List listOfSpecialities = new ArrayList();
+    List listOfEmployees = new ArrayList();
+
+    public Department(String title, Employee head, Faculty faculty) {
+        super(title);
+        this.head = head;
+        this.faculty = faculty;
+    }
+
+    public Speciality[] getSpecialities() {
+        return specialities;
+    }
+
+    public void addSpeciality(Speciality speciality) {
+        listOfSpecialities.add(speciality);
+    }
+    public void removeSpeciality(Speciality speciality) {
+        listOfSpecialities.remove(speciality);
+    }
+
+    public Employee[] getEmployees() {
+        employees = (Employee[]) listOfEmployees.toArray();
+        return employees;
+    }
+
+    public void addEmployee(Employee employee) {
+        listOfEmployees.add(employee);
+    }
+    public void removeEmployee(Employee employee) {
+        listOfEmployees.remove(employee);
+    }
+
+    public Employee getHead() {
+        return head;
+    }
+
+    public void setHead(Employee head) {
+        this.head = head;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+}

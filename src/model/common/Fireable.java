@@ -1,4 +1,4 @@
-package model.person;
+package model.common;
 
 
 public interface Fireable {

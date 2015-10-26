@@ -1,17 +1,21 @@
 package model.person;
 
 
+import model.common.Fireable;
+import model.common.Persistable;
+import model.unit.Faculty;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class Person extends Persistable implements Fireable  {
+public abstract class Person extends Persistable implements Fireable {
 
     String firstName;
     String lastName;
     LocalDate birthDay;
 
     // Constructor 1
-    Person(String inFirstName, String inLastName, LocalDate inBirthDate) {
+   public Person(String inFirstName, String inLastName, LocalDate inBirthDate) {
         checkFirstName(inFirstName);
         checkLastName(inLastName);
         checkBirthDate(inBirthDate);
@@ -21,7 +25,7 @@ public abstract class Person extends Persistable implements Fireable  {
     }
 
     // Constructor2
-    Person(String inFirstName, String inLastName, String inBirthDate_yyyymmdd) {
+    public Person(String inFirstName, String inLastName, String inBirthDate_yyyymmdd) {
         checkFirstName(inFirstName);
         checkLastName(inLastName);
         this.birthDay = LocalDate.parse(inBirthDate_yyyymmdd, DateTimeFormatter.ofPattern("yyyyMMdd"));
@@ -82,9 +86,10 @@ public abstract class Person extends Persistable implements Fireable  {
         checkBirthDate(birthDay);
     }
     public abstract void fire();
+    public abstract Faculty getFaculty();
 
     @Override
     public String toString() {
-     return "ID: " + getId() + "; Person: " + firstName + " " + lastName + "; Birthday: " + birthDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+     return "ID: " + getId() + "; " + this.getClass().getSimpleName() + " " + firstName + " " + lastName + "; Birthday: " + birthDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 }

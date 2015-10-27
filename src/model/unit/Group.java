@@ -10,8 +10,8 @@ import java.util.List;
 public class Group extends StructuralUnit {
     LocalDate dateOfCreation;
     List<Student> listOfStudents = new ArrayList<>();
-    Object[] students;
-//    Student[] students;
+//    Object[] students;
+    Student[] students;
     Speciality speciality;
     Employee curator;
 //    Department department;
@@ -60,21 +60,17 @@ public class Group extends StructuralUnit {
         this.curator = curator;
     }
     public Student[] getStudents() {
-        return (Student[])students;
+        students = listOfStudents.toArray(new Student[listOfStudents.size()]);
+        return students;
     }
 
     public void addStudent(Student student) {
         listOfStudents.add(student);
-        System.out.println("listOfStudents " + listOfStudents.toString());
-//        if  ( listOfStudents.size() > 1) students =   listOfStudents.toArray(students);
-        students =   listOfStudents.toArray();
     }
-
 
     public void removeStudent(Student student) {
 
         listOfStudents.remove(student);
-        students = (Student[]) listOfStudents.toArray();
     }
     public short getYear() {
         return (short) dateOfCreation.getYear();

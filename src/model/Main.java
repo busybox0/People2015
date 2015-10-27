@@ -59,7 +59,10 @@ public class Main {
         third.setSpeciality(neonatology);
         fourth.setSpeciality(neonatology);
 
-        System.out.println(third.getStudents());
+        for ( Student s : third.getStudents()) {
+            System.out.println("s = " + s.toString());
+        }
+
         System.out.println(neonatology.getGroups());
 
 

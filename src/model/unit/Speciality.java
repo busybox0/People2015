@@ -5,7 +5,7 @@ import java.util.List;
 
 // Факультет готовит специалистов по следующим специальностям...
 public class Speciality extends StructuralUnit{
-    Object[] groups;
+    Group[] groups;
     Department department;
     List<Group> listGroups = new ArrayList<>();
 
@@ -28,7 +28,7 @@ public class Speciality extends StructuralUnit{
         listGroups.remove(group);
     }
     public Group[] getGroups() {
-        groups =  listGroups.toArray();
-        return (Group[]) groups;
+        groups =  listGroups.toArray(new Group[listGroups.size()]);
+        return groups;
     }
 }

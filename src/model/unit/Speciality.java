@@ -19,7 +19,15 @@ public class Speciality extends StructuralUnit{
     }
 
     public void setDepartment(Department department) {
-        this.department = department;
+        if (this.department == null) {
+            this.department = department;
+            this.department.addSpeciality(this);
+        }
+        else {
+            this.department.removeSpeciality(this);
+            this.department = department;
+            this.department.addSpeciality(this);
+        }
     }
     public void addGroup(Group group) {
         listGroups.add(group);

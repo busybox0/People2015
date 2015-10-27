@@ -10,12 +10,11 @@ import java.util.List;
 public class Group extends StructuralUnit {
     LocalDate dateOfCreation;
     List<Student> listOfStudents = new ArrayList<>();
-//    Object[] students;
     Student[] students;
     Speciality speciality;
     Employee curator;
-//    Department department;
-//    Faculty faculty;
+    byte size; // this is the following-the-specs field. Of course int would be better here
+
 
     // Constructor 1
     public Group(String groupName, LocalDate dateOfCreation, Speciality speciality, Employee curator) {
@@ -75,9 +74,6 @@ public class Group extends StructuralUnit {
     public short getYear() {
         return (short) dateOfCreation.getYear();
     }
-    public byte getSize() {
-        return (byte) (students.length + 1);
-    }
     public Department getDepartment() {
         return this.getSpeciality().getDepartment();
     }
@@ -90,4 +86,10 @@ public class Group extends StructuralUnit {
 //    public void setFaculty(Faculty faculty) {
 //        this.faculty = faculty;
 //    }
+
+    public byte getSize() {
+        size = (byte) listOfStudents.size();
+        return size;
+    }
+
 }

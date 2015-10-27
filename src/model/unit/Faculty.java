@@ -10,7 +10,7 @@ public class Faculty extends StructuralUnit {
     LocalDate dateOfCreation;
     Department[] departments;
     Employee dean;
-    List listOfDepartments = new ArrayList();
+    List<Department> listOfDepartments = new ArrayList<>();
 
     public Faculty(String title, LocalDate dateOfCreation, Employee dean) {
         super(title);
@@ -32,7 +32,7 @@ public class Faculty extends StructuralUnit {
     }
 
     public Department[] getDepartments() {
-        departments = (Department[]) listOfDepartments.toArray();
+        departments =  listOfDepartments.toArray(new Department[listOfDepartments.size()]);
         return departments;
     }
 
@@ -47,7 +47,22 @@ public class Faculty extends StructuralUnit {
     public void setDean(Employee dean) {
         this.dean = dean;
     }
-
-    //TODO getEmployeesNumber
-    //TODO getStudentsNumber
+    public int getEmployeesNumber() {
+        int size = 0;
+        for (Department d : listOfDepartments) {
+            size += (int) d.getSize();
+        }
+        return size;
+    }
+    public int getStudentsNumber() {
+        int size = 0;
+        for (Department d : listOfDepartments) {
+            for (Speciality s : d.getSpecialities()){
+                for (Group g : s.getGroups()) {
+                    size += (int) g.getSize();
+                }
+            }
+        }
+    return size;
+    }
 }

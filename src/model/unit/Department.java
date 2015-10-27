@@ -9,8 +9,9 @@ public class Department extends StructuralUnit{
     Employee[] employees;
     Employee head;
     Faculty faculty;
-    List listOfSpecialities = new ArrayList();
-    List listOfEmployees = new ArrayList();
+    List<Speciality>  listOfSpecialities = new ArrayList<>();
+    List<Employee> listOfEmployees = new ArrayList<>();
+    byte size; // this is the following-the-specs field. Of course int would be better here
 
     public Department(String title, Employee head, Faculty faculty) {
         super(title);
@@ -19,6 +20,7 @@ public class Department extends StructuralUnit{
     }
 
     public Speciality[] getSpecialities() {
+        specialities = listOfSpecialities.toArray(new Speciality[listOfSpecialities.size()] );
         return specialities;
     }
 
@@ -30,7 +32,7 @@ public class Department extends StructuralUnit{
     }
 
     public Employee[] getEmployees() {
-        employees = (Employee[]) listOfEmployees.toArray();
+        employees =  listOfEmployees.toArray(new Employee[listOfEmployees.size()]);
         return employees;
     }
 
@@ -56,4 +58,11 @@ public class Department extends StructuralUnit{
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }
+
+    public byte getSize() {
+        size = (byte) listOfEmployees.size();
+        return size;
+    }
+
+
 }

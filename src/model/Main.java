@@ -23,13 +23,20 @@ public class Main {
 
         Faculty pediatry = new Faculty("Педиатрия",LocalDate.of(1890,9,1),(Employee)rector);
         Department daylight = new Department("Дневное",(Employee) panch,pediatry);
+        Department evening = new Department("Вечернее",(Employee) john,pediatry);
         Speciality surgery = new Speciality("Хирургия",daylight);
         Speciality neonatology = new Speciality("Неонатолония",daylight);
         Group third = new Group("Группа 3", LocalDate.of(1996,9,1),neonatology,(Employee) vikt);
         Group fourth = new Group("Группа 4", LocalDate.of(1996,9,1),surgery,(Employee) pasch);
 
+        for ( Employee e : new Employee[]{rector, panch, vikt}) {
+            e.setDepartment(daylight);
+        }
+        for ( Employee e : new Employee[]{pasch,john}) {
+            e.setDepartment(evening);
+        }
+
         Student vita = new Student("Вита", "Петренко", "19771115", "19960820");
-//        System.out.println("vita.getGroup" + vita.getGroup());
         Student sveta = new Student("Света", "Лесняк", "19790216", "19960821");
         Student oksana = new Student("Оксана", "Апанасенко", "19800308", "19960821");
         Student andrii = new Student("Андрей", "Головко", "19770520", "19960821");
@@ -50,21 +57,21 @@ public class Main {
             s.setGroup(third);
 
         }
+//        System.out.println("vita.getGroup = " + vita.getGroup());
         for (Student s : new Student[]{andrii, vova, lena}) {
             s.setGroup(fourth);
         }
-        System.out.println(vita.getGroup().toString());
+
+        System.out.println(vita.getGroup());
         System.out.println(vita.getGroup().getDepartment());
         System.out.println(vita.getGroup().getFaculty());
         third.setSpeciality(neonatology);
         fourth.setSpeciality(neonatology);
 
-        for ( Student s : third.getStudents()) {
-            System.out.println("s = " + s.toString());
-        }
 
-        System.out.println(neonatology.getGroups());
 
+        System.out.println("pediatry.getStudentsNumber() = " + pediatry.getStudentsNumber());
+        System.out.println("pediatry.getEmployeesNumber() = " + pediatry.getEmployeesNumber());
 
 
 

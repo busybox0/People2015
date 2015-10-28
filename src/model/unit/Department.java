@@ -16,7 +16,7 @@ public class Department extends StructuralUnit{
     public Department(String title, Employee head, Faculty faculty) {
         super(title);
         this.head = head;
-        this.faculty = faculty;
+        setFaculty(faculty);
     }
 
     public Speciality[] getSpecialities() {
@@ -56,7 +56,15 @@ public class Department extends StructuralUnit{
     }
 
     public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
+        if (this.faculty == null) {
+            this.faculty = faculty;
+            this.faculty.addDepartment(this);
+        }
+        else {
+            this.faculty.removeDepartment(this);
+            this.faculty = faculty;
+            this.faculty.addDepartment(this);
+        }
     }
 
     public byte getSize() {

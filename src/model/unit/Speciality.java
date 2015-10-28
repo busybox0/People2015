@@ -11,7 +11,7 @@ public class Speciality extends StructuralUnit{
 
     public Speciality(String title, Department department) {
         super(title);
-        this.department = department;
+        setDepartment(department);
     }
 
     public Department getDepartment() {

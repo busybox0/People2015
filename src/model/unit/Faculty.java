@@ -40,6 +40,10 @@ public class Faculty extends StructuralUnit {
         listOfDepartments.add(department);
     }
 
+    public void removeDepartment(Department department) {
+        listOfDepartments.remove(department);
+    }
+
     public Employee getDean() {
         return dean;
     }

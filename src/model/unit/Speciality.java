@@ -3,7 +3,7 @@ package model.unit;
 import java.util.ArrayList;
 import java.util.List;
 
-// Факультет готовит специалистов по следующим специальностям...
+// Р¤Р°РєСѓР»СЊС‚РµС‚ РіРѕС‚РѕРІРёС‚ СЃРїРµС†РёР°Р»РёСЃС‚РѕРІ РїРѕ СЃР»РµРґСѓСЋС‰РёРј СЃРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЏРј...
 public class Speciality extends StructuralUnit{
     Group[] groups;
     Department department;

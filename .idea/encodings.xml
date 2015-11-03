@@ -2,6 +2,12 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/model/Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/model/person/Employee.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/model/person/Student.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/model/unit/Department.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/model/unit/Faculty.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/model/unit/Group.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/model/unit/Speciality.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

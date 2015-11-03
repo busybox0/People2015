@@ -1,4 +1,11 @@
 package model;
+/**
+ *I will be a java dev :-)
+ *
+ * @author MP
+ * @see Tools - generate javadoc
+ * @version 2.0
+**/
 
 import model.person.Employee;
 import model.person.Person;
@@ -8,11 +15,17 @@ import model.unit.Faculty;
 import model.unit.Group;
 import model.unit.Speciality;
 
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
+import java.util.Locale;
 
 public class Main {
-
-    public static void main(String[] args) {
+    /**
+     * @author MP
+     * @param args "Array of strings. Not handled."
+     * @throws UnsupportedEncodingException
+     */
+    public static void main(String[] args) throws UnsupportedEncodingException {
 	// write your code here
 
         Employee rector = new Employee("Иван", "Цыганенко", "19600101", "20050101");
@@ -43,7 +56,7 @@ public class Main {
         Student vova = new Student("Вова", "Чечеленко", "19770520", "19960821");
         Student lena = new Student("Лена", "Лысенко", "19791218", "19960821");
         john.fire();
-//        System.out.println(john.toString() + "\n" + pasch.toString() + "\n" + lena.toString());
+        System.out.println(john.toString() + "\n" + pasch.toString() + "\n" + lena.toString());
 //        System.out.println(Employee.getTotalNumber());
 //        pasch.fire();
         System.out.println(Employee.getTotalNumber() + " objects.");
@@ -57,7 +70,7 @@ public class Main {
             s.setGroup(third);
 
         }
-//        System.out.println("vita.getGroup = " + vita.getGroup());
+        System.out.println("vita.getGroup = " + vita.getGroup());
         for (Student s : new Student[]{andrii, vova, lena}) {
             s.setGroup(fourth);
         }
@@ -72,8 +85,15 @@ public class Main {
 
         System.out.println("pediatry.getStudentsNumber() = " + pediatry.getStudentsNumber());
         System.out.println("pediatry.getEmployeesNumber() = " + pediatry.getEmployeesNumber());
-
-
+        System.out.println( System.getProperty("os.name"));
+        String consoleEncoding = System.getProperty("consoleEncoding");
+        System.out.println(consoleEncoding);
+        System.out.println(Locale.getDefault());
+        try {
+            System.setOut(new java.io.PrintStream(System.out, true, "Cp866"));
+        } catch (UnsupportedEncodingException e) {
+            System.err.println("Unsupported encoding set for console: ");
+        }
 
 
     }
